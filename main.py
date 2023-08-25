@@ -1,14 +1,15 @@
 import random
 from colorama import Fore
 
-userInput = input(Fore.BLUE + "Welcome to TrollText! Enter the Text:\n")
+userInput = input(Fore.BLUE + "Welcome to TrollText!\nEnter the Text:\n")
+replaced = input(Fore.BLUE + "Enter the letters you want replaced:\n")
 
-characters = ["!","@","#","$","%","^","&","*","(",")","-","=","1","2","3","4","5","6","7","8","9","0","[","]",";","'",".","/"]
-characters_to_replace = 'efgi'
+characters = [
+  "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "=", "1", "2", "3",
+  "4", "5", "6", "7", "8", "9", "0", "[", "]", ";", "'", ".", "/"
+]
 
-trolltext = userInput
+for c in replaced:
+  userInput = userInput.replace(c, random.choice(characters))
 
-for character in characters_to_replace:
-  trolltext = trolltext.replace(character, random.choice(characters))
-
-print(Fore.YELLOW + trolltext)
+print(Fore.YELLOW + userInput)
